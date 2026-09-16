@@ -1,0 +1,60 @@
+{
+  "name": "@resolve-protocol/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for the Resolve prediction market protocol on Stellar/Soroban",
+  "license": "Apache-2.0",
+  "author": "Resolve Protocol",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@stellar/stellar-sdk": "^14.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "rimraf": "^6.0.1",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  },
+  "keywords": [
+    "stellar",
+    "soroban",
+    "prediction-market",
+    "resolve",
+    "sdk"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resolve-protocol/sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/resolve-protocol/sdk/issues"
+  },
+  "homepage": "https://github.com/resolve-protocol/sdk#readme"
+}
